@@ -1,14 +1,10 @@
-import { createWindow } from "./core/windowManager.js";
+import { initDesktop } from "./core/desktop.js";
+import { initTaskbar } from "./core/taskbar.js";
+import { initApps, apps } from "./core/appManager.js";
 
-function updateClock() {
-  const now = new Date();
-  document.getElementById("clock").textContent =
-    now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
-setInterval(updateClock, 1000);
-updateClock();
+initDesktop();
+initTaskbar();
+initApps();
 
-createWindow("Welcome", `
-  <h3>NOVA OS</h3>
-  <p>System initialized.</p>
-`);
+// Open default window
+apps.About();
