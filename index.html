@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NOVA OS</title>
+  <title>NOVA Web OS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div id="desktop"></div>
 
+  <!-- Taskbar -->
   <div id="taskbar">
     <div id="start">☰</div>
     <div id="tasks"></div>
     <div id="clock"></div>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="startMenu" class="hidden">
+    <div class="menu-header">Apps</div>
+    <div id="appList"></div>
   </div>
 
   <script type="module" src="main.js"></script>
