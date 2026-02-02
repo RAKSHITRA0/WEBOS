@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-  user-select: none;
-}
-
+* { box-sizing: border-box; user-select: none; }
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
@@ -10,12 +6,9 @@ body {
   overflow: hidden;
 }
 
-#desktop {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
+#desktop { width: 100vw; height: 100vh; position: relative; }
 
+/* Windows */
 .window {
   position: absolute;
   width: 320px;
@@ -25,39 +18,40 @@ body {
   border-radius: 10px;
   color: #e6edf3;
   box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  display: flex; flex-direction: column;
 }
 
 .titlebar {
-  height: 32px;
-  background: #0d1117;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  cursor: grab;
-  border-bottom: 1px solid #30363d;
+  height: 32px; background: #0d1117; padding: 0 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: grab; border-bottom: 1px solid #30363d;
 }
 
-.content {
-  padding: 10px;
+.titlebar .controls button {
+  background: none; border: none; color: #e6edf3;
+  font-size: 14px; cursor: pointer; margin-left: 6px;
 }
+.titlebar .controls button:hover { color: #ff7b72; }
 
+.content { flex: 1; padding: 10px; overflow: auto; }
+
+/* Taskbar */
 #taskbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 38px;
-  background: #0d1117;
-  border-top: 1px solid #30363d;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: fixed; bottom: 0; width: 100%; height: 38px;
+  background: #0d1117; border-top: 1px solid #30363d;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 0 10px;
 }
+#start { cursor: pointer; }
+#clock { font-size: 13px; }
 
-#start {
-  cursor: pointer;
+/* Start Menu */
+#startMenu {
+  position: fixed; bottom: 38px; left: 0; width: 220px;
+  background: #161b22; border: 1px solid #30363d;
+  color: #e6edf3; display: flex; flex-direction: column;
 }
-
-#clock {
-  font-size: 13px;
-}
+#startMenu.hidden { display: none; }
+.menu-header { padding: 10px; border-bottom: 1px solid #30363d; font-weight: bold; }
+.menu-item { padding: 8px 10px; cursor: pointer; }
+.menu-item:hover { background: #21262d; }
